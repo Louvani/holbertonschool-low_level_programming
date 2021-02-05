@@ -9,6 +9,12 @@
 
 int main(void)
 {
-	printf("0123456789\n");
+	char a;
+
+	for (a = 'z' ; a >= 'a' ; a--)
+	{
+		putchar(a);
+	}
+	putchar('\n');
 	return (0);
 }
