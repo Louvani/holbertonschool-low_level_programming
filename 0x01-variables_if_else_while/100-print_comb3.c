@@ -9,16 +9,23 @@
 
 int main(void)
 {
-	int n;
+	int i;
+	int j;
 
-	for (n = 0 ; n < 100 ; n++)
+	for (i = 0 ; i < 10 ; i++)
 	{
-		putchar((n / 10) + '0');
-		putchar((n % 10) + '0');
-		if (n < 99)
+		for (j = 0 ; j < 10 ; j++)
 		{
-			putchar(',');
-			putchar(' ');
+			if (i != j && i < j)
+			{
+				putchar(i + '0');
+				putchar(j + '0');
+				if ((i * 10) + j < 89)
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
 		}
 	}
 	putchar('\n');
