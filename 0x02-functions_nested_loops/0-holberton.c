@@ -3,7 +3,7 @@
  *main - Entry point
  *Return: On success 0.
  */
-void main(void)
+int main(void)
 {
 	_putchar('H');
 	_putchar('o');
