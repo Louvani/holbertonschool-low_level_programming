@@ -3,10 +3,10 @@
 /**
 *add - Entry point
 *
-* Return: c 
+*Return: c 
 */
 
 int add(int a, int b)
 {
-	return(a + b);
+	return (a + b);
 }
