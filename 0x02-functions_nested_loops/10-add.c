@@ -2,8 +2,9 @@
 
 /**
 *add - Entry point
-*
-*Return: c 
+*@a: Variable
+*@b: Variable
+*Return: a + b
 */
 
 int add(int a, int b)
