@@ -2,22 +2,15 @@
 
 /**
  * _puts - function that prints a string
- *@str: 
- *@l: 
- *
- * Return: always 0.
+ *@str: String
  */
 
 void _puts(char *str)
 {
-	int l;
-
-	l = 0;
-
-	while (*s != '\0')
+	while (*str != '\0')
 	{
-		l++;
-		s++;
+		_putchar(*str);
+		str++;
 	}
-	return (l);
+	_putchar(10);
 }
