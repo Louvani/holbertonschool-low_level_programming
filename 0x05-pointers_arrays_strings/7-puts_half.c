@@ -17,12 +17,11 @@ void puts_half(char *str)
 	{
 		l++;
 	}
-	
 	if (l % 2 == 0)
 	{
 		startingPoint = l / 2;
 	}
-	else 
+	else
 	{
 		startingPoint = (l - 1) / 2;
 	}
