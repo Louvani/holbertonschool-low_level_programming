@@ -13,9 +13,10 @@ void puts_half(char *str)
 
 	l = 0;
 
-	while (*strAux++)
+	while (*strAux)
 	{
 		l++;
+		strAux++;
 	}
 	if (l % 2 == 0)
 	{
