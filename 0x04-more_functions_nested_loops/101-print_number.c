@@ -51,14 +51,15 @@ int getNumberOfDigit(int n)
 
 int power(int x, int y)
 {
+	int power = x;
+	int i;
+
 	if (y == 0)
 	{
 		return (1);
 	}
 
-	int power = x;
-
-	for (int i = y; i > 1; i--)
+	for (i = y; i > 1; i--)
 	{
 		power = power * x;
 	}
