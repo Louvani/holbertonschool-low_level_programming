@@ -26,12 +26,11 @@ void puts_half(char *str)
 	{
 		startingPoint = (l - 1) / 2;
 	}
-
-	char *copyStr = str + startingPoint;
-
-	while (*copyStr)
+	
+	while (str[l] + startingPoint)
 	{
-		_putchar(*copyStr++);
+		_putchar(*str++);
+		startingPoint++;
 	}
 	_putchar(10);
 }
