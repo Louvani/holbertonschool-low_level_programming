@@ -7,6 +7,7 @@ unsigned int myStrlen(char *p);
  *@c: Valrable
  * Return: Always char.
  */
+
 char *string_toupper(char *c)
 {
 	int count = 0;

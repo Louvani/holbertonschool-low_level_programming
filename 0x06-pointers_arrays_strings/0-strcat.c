@@ -35,10 +35,10 @@ unsigned int myStrlen(char *p)
 	/*h-e-l-l-o-_-'\0' .*/
 	while (*p != '\0')
 	{
-		//1-2-3-4-5-6
+		/*1-2-3-4-5-6*/
 		count++;
-		//e-l-l-o-_-'\0'
+		/*e-l-l-o-_-'\0'*/
 		p++;
 	}
-	return (count); //6
+	return (count); /*6*/
 }
