@@ -9,13 +9,13 @@ unsigned int myStrlen(char *p);
  */
 char *string_toupper(char *c)
 {
-	char count = *c;
+	int count = 0;
 
-	while (*c != 0)
+	while (c[count] != '\0')
 	{
-		if (count >= 'a' && count <= 'z')
+		if (c[count] >= 'a' && c[count] <= 'z')
 		{
-			*c = *c - 32;
+			c[count] = c[count] - 32;
 		}
 		c++;
 	}
