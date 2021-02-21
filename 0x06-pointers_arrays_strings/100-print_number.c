@@ -14,6 +14,7 @@ void print_number(int n)
 	int digitNumber = getNumberOfDigit(n);
 	int divider = power(10, digitNumber - 1);
 	unsigned int abs_n = absolute(n);
+	int currentDigit = abs_n / divider;
 
 	if (n < 0)
 	{
@@ -21,8 +22,6 @@ void print_number(int n)
 	}
 
 	do {
-		int currentDigit = abs_n / divider;
-
 		_putchar(currentDigit + 48);
 		abs_n = abs_n % divider;
 		divider = divider / 10;
