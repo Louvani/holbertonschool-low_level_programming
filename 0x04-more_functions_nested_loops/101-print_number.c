@@ -10,33 +10,32 @@ unsigned int absolute(int n);
 
 /**
  *print_number - function that prints an integer
- *getNumberOfDigit - Give us the number of digits in one number
- *power - give us the most near power of n.
- *absolute - give us the absolute number if it is negative.
- *@n: bring the value from main
+ *@n: bring the value from main functión
  */
-
 void print_number(int n)
 {
 	int digitNumber = getNumberOfDigit(n);
 	int divider = power(10, digitNumber - 1);
+	unsigned int abs_n = absolute(n);
+	int currentDigit = abs_n / divider;
 
 	if (n < 0)
 	{
 		_putchar('-');
 	}
 
-	unsigned int abs_n = absolute(n);
-
 	do {
-		int currentDigit = abs_n / divider;
-
+		currentDigit = abs_n / divider;
 		_putchar(currentDigit + ZERO);
 		abs_n = abs_n % divider;
 		divider = divider / 10;
 	} while (divider != 0);
 }
-
+/**
+ *getNumberOfDigit - Give us the number of digits in one number
+ *@n: bring the value from print_number
+ *Return: The number of Digits.
+ */
 int getNumberOfDigit(int n)
 {
 	int nAux = n;
@@ -48,7 +47,12 @@ int getNumberOfDigit(int n)
 	} while (nAux != 0);
 	return (numDigits);
 }
-
+/**
+ *power - give us the most near power of n.
+ *@x: always 10
+ *@y: digitNumber - 1
+ *Return: power of the digits
+ */
 int power(int x, int y)
 {
 	int power = x;
@@ -65,7 +69,11 @@ int power(int x, int y)
 	}
 	return (power);
 }
-
+/**
+ *absolute - give us the absolute number if it is negative.
+ *@n: bring the value from print_number
+ *Return: An absolute number.
+ */
 unsigned int absolute(int n)
 {
 	unsigned int result;
