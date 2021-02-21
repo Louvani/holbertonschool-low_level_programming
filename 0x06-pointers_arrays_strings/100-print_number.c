@@ -22,6 +22,7 @@ void print_number(int n)
 	}
 
 	do {
+		currentDigit = abs_n / divider;
 		_putchar(currentDigit + 48);
 		abs_n = abs_n % divider;
 		divider = divider / 10;
@@ -55,7 +56,7 @@ int getNumberOfDigit(int n)
 
 int power(int x, int y)
 {
-	int p = x;
+	int power = x;
 	int i;
 
 	if (y == 0)
@@ -65,9 +66,9 @@ int power(int x, int y)
 
 	for (i = y; i > 1; i--)
 	{
-		p = p * x;
+		power = power * x;
 	}
-	return (p);
+	return (power);
 }
 
 /**
