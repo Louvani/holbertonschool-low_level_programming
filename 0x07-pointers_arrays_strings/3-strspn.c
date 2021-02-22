@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * int _strspn - function that gets the length of a prefix substring
+ * _strspn - function that gets the length of a prefix substring
  * @s: String
  * @accept: second string
  * Return:  the num of bytes in the initial segment of s.
