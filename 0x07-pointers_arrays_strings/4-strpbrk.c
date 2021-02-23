@@ -6,6 +6,7 @@
  * @accept: second string
  * Return:  the num of bytes in the initial segment of s.
  */
+
 char *_strpbrk(char *s, char *accept)
 {
 	int i, j;
