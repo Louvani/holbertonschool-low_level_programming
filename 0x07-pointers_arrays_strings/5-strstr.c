@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
- * *_strpbrk - function that gets the length of a prefix substring
- * @s: String
- * @accept: second string
+ * *_strstr -  function that locates a substring.
+ * @haystack: String
+ * @needle: second string
  * Return:  the num of bytes in the initial segment of s.
  */
 char *_strstr(char *haystack, char *needle)
@@ -21,9 +21,9 @@ char *_strstr(char *haystack, char *needle)
 
 		if (!*j)
 		{
-			return i;
+			return (i);
 		}
-		haystack = i + 1;		
+		haystack = i + 1;
 	}
 	return (0);
 }
