@@ -5,6 +5,7 @@
  * @n: number
  * Return: natural square root
  */
+
 int _sqrt_recursion(int n)
 {
 	int m;
@@ -18,6 +19,12 @@ int _sqrt_recursion(int n)
 	return (m);
 
 }
+/**
+ * secondFunction - function that returns the natural square root of a number.
+ * @n: number
+ * @a: number to test
+ * Return: natural square root
+ */
 int secondFunction(int n, int a)
 {
 
