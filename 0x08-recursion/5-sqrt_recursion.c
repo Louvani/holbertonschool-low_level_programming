@@ -4,7 +4,7 @@ int secondFunction(int n, int a);
 
 /**
  * _sqrt_recursion - function that returns the natural square root of a number.
- * @n: number 
+ * @n: number
  * Return: natural square root
  */
 
@@ -23,11 +23,11 @@ int _sqrt_recursion(int n)
 }
 int secondFunction(int n, int a)
 {
-	
+
 	if ((a * a) == n)
 	{
 		return (a);
-	} 
+	}
 	if ((a * a) > n)
 	{
 		return (-1);
