@@ -1,4 +1,4 @@
-#ifndef HOLBERTON_H 
+#ifndef HOLBERTON_H
 #define HOLBERTON_H
 
 int _putchar(char c);
@@ -8,9 +8,9 @@ int _strlen_recursion(char *s);
 int factorial(int n);
 int _pow_recursion(int x, int y);
 int _sqrt_recursion(int n);
-int secondFunction(int n, int a);
 int is_prime_number(int n);
 int is_palindrome(char *s);
 int wildcmp(char *s1, char *s2);
+int secondFunction(int n, int a);
 
 #endif
