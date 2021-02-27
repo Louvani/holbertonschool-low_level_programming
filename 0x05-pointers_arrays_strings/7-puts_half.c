@@ -26,7 +26,6 @@ void puts_half(char *str)
 	{
 		startingPoint = (l - 1) / 2;
 	}
-	
 	while (str[l] + startingPoint)
 	{
 		_putchar(*str++);
