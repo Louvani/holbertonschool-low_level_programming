@@ -11,13 +11,13 @@ char *_strcpy(char *dest, char *src)
 	int i;
 	int len = _strlen(src);
 
+	if (len == 0)
+	{
+		dest = '\0';
+	}
 	for (i = 0; src[i] != '\0'; i++)
 	{
 		dest[i] = src[i];
-	}
-	for ( ; i < len; i++)
-	{
-		dest[i] = '\0';
 	}
 	return (dest);
 }
@@ -27,6 +27,7 @@ char *_strcpy(char *dest, char *src)
  *
  * Return: always l.
  */
+
 int _strlen(char *s)
 {
 	int l;
