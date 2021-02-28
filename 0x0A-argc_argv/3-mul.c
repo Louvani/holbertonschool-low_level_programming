@@ -6,7 +6,7 @@
  * main - prints the number of arguments passed into it.
  * @argc:Counter of arguments
  * @argv: arguments
- * Return: 0
+ * Return: 0 if have more than 1 arguments.
  */
 
 int main(int argc, char *argv[])
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	{
 		for (i = 1; i < argc; i++)
 		{
-			mul = mul * atoi(argv[i]);
+			mul = mul * strtol(argv[i], NULL, 10);
 		}
 		printf("%d\n", mul);
 	}
