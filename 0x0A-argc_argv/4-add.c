@@ -53,7 +53,7 @@ int _digit(char *c)
 	{
 		if (isdigit(c[i]))
 		{
-			i++;
+			continue;
 		}
 		else
 		{
