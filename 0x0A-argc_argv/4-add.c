@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
 	}
 	return (0);
 }
+
 /**
  * _digit - Entry point
  * @c: Variable
@@ -53,7 +54,7 @@ int _digit(char *c)
 	{
 		if (isdigit(c[i]))
 		{
-			continue;
+			i++;
 		}
 		else
 		{
