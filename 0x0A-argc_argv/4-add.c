@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-int _isdigit(int c);
+int _digit(char *c);
 
 /**
- * main - prints the number of arguments passed into it.
+ * main - add numbers recived as arguments
  * @argc:Counter of arguments
  * @argv: arguments
  * Return: 0 if have more than 1 arguments.
@@ -24,17 +24,40 @@ int main(int argc, char *argv[])
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (!isdigit(*argv[i]))
+			if (_digit(argv[i]))
+			{
+				sum = sum + atoi(argv[i]);
+			}
+			else
 			{
 				printf("Error\n");
 				return (1);
 			}
-			else
-			{
-				sum = sum + atoi(argv[i]);
-			}
+
 		}
 		printf("%d\n", sum);
 	}
 	return (0);
+}
+/**
+ *_isdigit - Entry point
+ *@c: Variable
+ * Return: 1 is is digit and 0 if is otherwise
+ */
+
+int _digit(char *c)
+{
+	int i;
+
+	for (i = 0; c[i] != '\0'; i++)
+	{
+		if (isdigit(c[i]))
+		{
+		}
+		else
+		{
+			return (0);
+		}
+	}
+	return (1);
 }
