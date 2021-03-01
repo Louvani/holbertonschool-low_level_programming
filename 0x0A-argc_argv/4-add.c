@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 
 int _digit(char *c)
 {
-	int i =0;
+	int i = 0;
 
 	while (c[i] != '\0')
 	{
