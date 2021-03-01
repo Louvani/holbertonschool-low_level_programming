@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 	return (0);
 }
 /**
- * _isdigit - Entry point
+ * _digit - Entry point
  * @c: Variable
  * Return: 1 is is digit and 0 if is otherwise
  */
