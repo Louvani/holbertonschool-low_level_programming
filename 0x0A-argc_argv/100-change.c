@@ -11,7 +11,6 @@ int change(int cent, int *coin);
  * @argv: arguments
  * Return: 0 if have more than 1 arguments.
  */
-
 int main(int argc, char *argv[])
 {
 	int coin[5] = {25, 10, 5, 2, 1};
@@ -19,7 +18,7 @@ int main(int argc, char *argv[])
 
 	if (argc == 1)
 	{
-		printf("Error\n")
+		printf("Error\n");
 		return (0);
 	}
 	for (i = 0; i < argc; i++)
@@ -42,7 +41,6 @@ int main(int argc, char *argv[])
  * @coin: coins
  * Return: value of moneys.
  */
-
 int change(int cent, int *coin)
 {
 	if ((cent % *coin) == 0)
