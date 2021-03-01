@@ -20,6 +20,11 @@ int main(int argc, char *argv[])
 	for (i = 0; i < argc; i++)
 	{
 		cent = atoi(argv[i]);
+		if (atoi(argv[i]) < 0)
+		{
+			printf("0\n");
+			return (0);
+		}
 		result = change(cent, coin);
 	}
 	printf("%d\n", result);
