@@ -40,19 +40,20 @@ int main(int argc, char *argv[])
 	return (0);
 }
 /**
- *_isdigit - Entry point
- *@c: Variable
+ * _isdigit - Entry point
+ * @c: Variable
  * Return: 1 is is digit and 0 if is otherwise
  */
 
 int _digit(char *c)
 {
-	int i;
+	int i =0;
 
-	for (i = 0; c[i] != '\0'; i++)
+	while (c[i] != '\0')
 	{
 		if (isdigit(c[i]))
 		{
+			i++;
 		}
 		else
 		{
