@@ -17,6 +17,11 @@ int main(int argc, char *argv[])
 	int coin[5] = {25, 10, 5, 2, 1};
 	int i, cent, result;
 
+	if (argc == 1)
+	{
+		printf("Error\n")
+		return (0);
+	}
 	for (i = 0; i < argc; i++)
 	{
 		cent = atoi(argv[i]);
@@ -37,6 +42,7 @@ int main(int argc, char *argv[])
  * @coin: coins
  * Return: value of moneys.
  */
+
 int change(int cent, int *coin)
 {
 	if ((cent % *coin) == 0)
