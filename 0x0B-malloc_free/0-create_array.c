@@ -7,17 +7,14 @@
  * @c: charcater to initialize
  * Return: variable a
  */
-
 char *create_array(unsigned int size, char c)
 {
 	char *a;
 
 	if (size == 0)
 	{
-		return (0);
+		return (NULL);
 	}
-
 	a = malloc(sizeof(c) * size);
-
 	return (a);
 }
