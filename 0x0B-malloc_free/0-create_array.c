@@ -7,6 +7,7 @@
  * @c: charcater to initialize
  * Return: variable a
  */
+
 char *create_array(unsigned int size, char c)
 {
 	char *a;
@@ -17,15 +18,14 @@ char *create_array(unsigned int size, char c)
 	{
 		return (NULL);
 	}
-
+	if (a == NULL)
+	{
+		return (NULL);
+	}
 	while (i < size)
 	{
 		a[i] = c;
 		i++;
-	}
-	if (a == '\0')
-	{
-		return (NULL);
 	}
 	return (a);
 }
