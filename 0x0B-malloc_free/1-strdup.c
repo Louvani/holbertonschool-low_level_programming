@@ -7,7 +7,6 @@
  * @str: string
  * Return: Char.
  */
-
 char *_strdup(char *str)
 {
 	char *a, *aux;
@@ -24,7 +23,7 @@ char *_strdup(char *str)
 		l++;
 	}
 
-	a = malloc(sizeof(str) * (l + 1));
+	a = malloc(sizeof(char) * (l + 1));
 
 	if (a == NULL)
 	{
