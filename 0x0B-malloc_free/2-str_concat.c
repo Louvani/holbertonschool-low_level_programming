@@ -10,6 +10,7 @@ unsigned int myStrlen(char *p);
  * @s2: string 2
  * Return: Char.
  */
+
 char *str_concat(char *s1, char *s2)
 {
 	int str1, str2, i, j;
@@ -28,6 +29,11 @@ char *str_concat(char *s1, char *s2)
 	str2 = myStrlen(s2);
 
 	a = malloc(sizeof(char) * (str1 + str2 + 1));
+
+	if (a == NULL)
+	{
+		return (NULL);
+	}
 
 	for (i = 0; *(s1 + i) != '\0'; i++)
 	{
