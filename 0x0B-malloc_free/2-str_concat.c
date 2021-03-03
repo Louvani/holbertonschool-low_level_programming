@@ -13,7 +13,7 @@ unsigned int myStrlen(char *p);
 
 char *str_concat(char *s1, char *s2)
 {
-	int str1, str2, str3, i, j;
+	int str1, str2, i, j;
 	char *a;
 
 	if (s1 == NULL)
