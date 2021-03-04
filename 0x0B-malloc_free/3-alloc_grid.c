@@ -7,6 +7,7 @@
  * @height: size of height
  * Return: duoble pointer (ptr)
  */
+
 int **alloc_grid(int width, int height)
 {
 	int **ptr;
@@ -30,6 +31,7 @@ int **alloc_grid(int width, int height)
 		if (*(ptr) == NULL)
 		{
 			free(*(ptr + i));
+			free(ptr);
 			return (NULL);
 		}
 		for (j = 0; j < width; j++)
