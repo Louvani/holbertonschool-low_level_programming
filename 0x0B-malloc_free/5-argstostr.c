@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "holberton.h"
 #include <stdlib.h>
+
 int _strlen(char *s);
 
 /**
@@ -27,12 +28,13 @@ char *argstostr(int ac, char **av)
 
 	for (j = 0; j < ac; j++)
 	{
-		for (k = 0; av != '\0'; k++)
+		for (k = 0; av[j][k] != '\0'; k++)
 		{
 			a[l] = av[j][k];
 			l++;
 		}
 		a[l] = '\n';
+		l++;
 	}
 	a[l + 1] = '\0';
 	return (a);
