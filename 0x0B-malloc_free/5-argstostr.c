@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "holberton.h"
 #include <stdlib.h>
-
 int _strlen(char *s);
 
 /**
@@ -16,6 +15,10 @@ char *argstostr(int ac, char **av)
 	int i, j, len = 0, k, l = 0;
 	char *a;
 
+	if (av == NULL || ac == 0)
+	{
+		return (NULL);
+	}
 	for (i = 0; i < ac; i++)
 	{
 		len += _strlen(av[i]) + 1;
