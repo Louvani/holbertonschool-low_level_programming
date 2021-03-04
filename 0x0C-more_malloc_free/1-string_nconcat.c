@@ -1,7 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 unsigned int myStrlen(char *p);
 
 /**
@@ -17,26 +16,19 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int strlen1, strlen2, j;
 	int i;
 
-	if (s1 == NULL)
-	{
-		s1 = "";
-	}
-	if (s2 == NULL)
-	{
-		s2 = "";
-	}
+
 
 	strlen1 = myStrlen(s1);
 	strlen2 = myStrlen(s2);
 
 	if (n >= strlen2)
 	{
-		a = malloc(strlen1 + strlen2 + 1);
+		a = malloc(strlen1 + strlen2);
 		if (a == NULL)
 		{
-			free(a);
 			return (NULL);
 		}
+
 		for (i = 0; *(s1 + i) != '\0'; i++)
 		{
 			*(a + i) = *(s1 + i);
@@ -52,7 +44,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		a = malloc(strlen1 + n);
 		if (a == NULL)
 		{
-			free(a);
 			return (NULL);
 		}
 		for (i = 0; *(s1 + i) != '\0'; i++)
