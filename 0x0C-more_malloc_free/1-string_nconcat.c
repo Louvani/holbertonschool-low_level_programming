@@ -1,7 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 unsigned int myStrlen(char *p);
 
 /**
@@ -38,7 +37,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		{
 			*(a + i + j) = *(s2 + j);
 		}
-		*(a + i + j) = '\0';
 	}
 	else if (n < strlen2)
 	{
@@ -55,8 +53,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		{
 			*(a + i + j) = *(s2 + j);
 		}
-		*(a + i + j) = '\0';
 	}
+	a[i + j] = '\0';
 	return (a);
 }
 /**
