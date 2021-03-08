@@ -1,5 +1,5 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
-#define PI  3.14159265359
+#define PI (3.14159265359)
 
-#endif
+#endif /*HOLBERTON_H*/
