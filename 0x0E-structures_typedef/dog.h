@@ -1,5 +1,5 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef DOG_H
+#define DOG_H
 
 /**
  * struct dog - data of pets
