@@ -6,7 +6,6 @@
  * @d: adrres of my_dog
  * Return: Always 0.
  */
-
 void print_dog(struct dog *d)
 {
 	if (d == NULL)
@@ -15,9 +14,9 @@ void print_dog(struct dog *d)
 		printf("Name: %s\n", d->name);
 	else
 		printf("Name: (nil)\n");
-	printf("Name: %f\n", d->age);
+	printf("Age: %f\n", d->age);
 	if (d->owner != NULL)
-		printf("Name: %s\n", d->owner);
+		printf("Owner: %s\n", d->owner);
 	else
-		printf("Name: (nil)\n");
+		printf("Owner: (nil)\n");
 }
