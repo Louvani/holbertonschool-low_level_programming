@@ -6,7 +6,6 @@
  * @argv: arguments
  * Return: always 0
  */
-
 int main(int argc, char *argv[])
 {
 	int num1, num2;
@@ -21,9 +20,9 @@ int main(int argc, char *argv[])
 	num2 = atoi(argv[3]);
 	if ((strcmp(argv[2], "/") == 0) || (strcmp(argv[2], "%") == 0))
 	{
-		if (argv[3] == 0)
+		if (num2 == 0)
 		{
-			printf("Error");
+			printf("Error\n");
 			exit(100);
 		}
 	}
