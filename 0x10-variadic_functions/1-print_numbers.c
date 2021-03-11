@@ -6,6 +6,7 @@
  * @separator: string to separete numbers.
  * @n: number of arguments pased.
  */
+
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list numbers;
@@ -24,7 +25,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		if (i == (n - 1))
 		{
 			printf("%d", va_arg(numbers, int));
-			printf("\n");
 		}
 		else
 		{
@@ -34,5 +34,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		}
 		i++;
 	}
+	printf("\n");
 	va_end(numbers); /*End the call of the arguments*/
 }
