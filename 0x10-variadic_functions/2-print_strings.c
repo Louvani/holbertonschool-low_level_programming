@@ -6,7 +6,6 @@
  * @separator: string to separete words.
  * @n: number of arguments pased.
  */
-
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list strings;
@@ -20,17 +19,15 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	while (i < n)
 	{
 		str = va_arg(strings, char *);
+		if (str == NULL)
+			str = "(nill)";
 
 		if (i == (n - 1))
 		{
-			if (str == NULL)
-				str = "(nill)";
 			printf("%s", str);
 		}
 		else
 		{
-			if (str == NULL)
-				str = "(nill)";
 			printf("%s", str);
 			if (separator != NULL) /*If separator is NULL, don’t print it*/
 				printf("%s", separator);
