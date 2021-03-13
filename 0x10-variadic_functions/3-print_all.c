@@ -5,11 +5,11 @@ void print_char(va_list c);
 void print_integer(va_list i);
 void print_float(va_list f);
 void print_string(va_list s);
+
 /**
  * print_all - function that prints strings, followed by a new line.
  * @format:_constante
  */
-
 void print_all(const char * const format, ...)
 {
 	fun frmts[] = {
@@ -21,6 +21,7 @@ void print_all(const char * const format, ...)
 	};
 	int i = 0;
 	int j = 0;
+	char *separator = "";
 	va_list list;
 
 	va_start(list, format);
@@ -32,9 +33,9 @@ void print_all(const char * const format, ...)
 		{
 			if (*(format + i) == frmts[j].str[0])
 			{
+				printf("%s", separator);
 				frmts[j].f(list);
-				if (format[i] != '\0')
-					printf(", ");
+				separator = ", ";
 			}
 			j++;
 		}
@@ -75,5 +76,9 @@ void print_float(va_list f)
  */
 void print_string(va_list s)
 {
+	if (s == NULL)
+	{
+		printf("(nil)");
+	}
 	printf("%s", va_arg(s, char *));
 }
