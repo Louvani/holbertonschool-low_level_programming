@@ -5,7 +5,6 @@ void print_char(va_list c);
 void print_integer(va_list i);
 void print_float(va_list f);
 void print_string(va_list s);
-
 /**
  * print_all - function that prints strings, followed by a new line.
  * @format:_constante
@@ -76,7 +75,5 @@ void print_float(va_list f)
  */
 void print_string(va_list s)
 {
-	if (s == NULL)
-		printf("nil");
 	printf("%s", va_arg(s, char *));
 }
