@@ -33,16 +33,20 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 	unsigned int num_of_nodes = listint_len(head);
 	unsigned int counter = 0;
 
-	if (head == NULL || index > num_of_nodes)
+	if (head == NULL)
 		return (NULL);
-
 	if (index == 1)
 		return (temp);
-	while (counter < index && temp->next != NULL)
+	if (index <= num_of_nodes)
 	{
-		temp = temp->next;
-		counter++;
+		while (counter < index && temp->next != NULL)
+		{
+			temp = temp->next;
+			counter++;
+		}
+		return (temp);
 	}
-	return (temp);
+	else
+		return (NULL);
 
 }
