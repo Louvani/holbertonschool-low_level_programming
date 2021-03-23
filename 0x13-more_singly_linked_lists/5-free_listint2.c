@@ -6,17 +6,16 @@
 
 void free_listint2(listint_t **head)
 {
-	listint_t *tmp = NULL;
-	listint_t *current = *head;
+	listint_t *current = NULL; /*to be in the current node*/
 
-	if (head == NULL && *head == NULL)
-		return;
-
-	while (current != NULL)
+	if (head) /*If addres is not NULL*/
 	{
-		tmp = current->next;
-		free(current);
-		current = tmp;
+		while (*head != NULL) /*if node is not null*/
+		{
+			current = *head;
+			*head = current->next;
+			free(current);
+		}
 	}
-	*head = NULL;
+	*head = NULL; /*set again head to null*/
 }
