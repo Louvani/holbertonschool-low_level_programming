@@ -28,22 +28,22 @@ size_t listint_len(const listint_t *h)
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *new_element = NULL, *current;
+	listint_t *new_element, *current = *head;
 	unsigned int num_of_nodes = listint_len(*head);
 	unsigned int counter = 0;
-
-	if (head == NULL)
-		return (NULL);
-	current = (*head);
 
 	new_element = malloc(sizeof(listint_t));
 	if (new_element == NULL)
 		return (NULL);
 	new_element->n = n;
+	/*new_element->next = NULL;rrevisar*/
 
 	if (idx == 0)
 	{
-		return (NULL);
+		new_element->next = current;
+		*head = new_element;
+
+		return (*head);
 	}
 
 	if (idx <= num_of_nodes)
