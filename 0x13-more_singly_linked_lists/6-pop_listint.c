@@ -11,7 +11,7 @@ int pop_listint(listint_t **head)
 	listint_t *current = NULL; /*points to to the last node created*/
 	int value;
 
-	if (head == NULL)
+	if (head == NULL || *head == NULL)
 		return (0);
 
 	current = *head;
