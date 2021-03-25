@@ -11,26 +11,26 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int decimal = 0;
-	int counter, i, j = 0;
+	int counter, j = 0;
 
 	counter = _strlen(b);
 
 	if (b == NULL)
 		return (0);
-	i = check_binary(b);
-	if (i == 1)
+
+	if (check_binary(b) == 1)
 	{
 		while (b[j] != '\0')
 		{
 			if (b[j] == 49)
 			{
-				decimal = decimal + (1 << (counter - 1));
+				decimal +=  (1 << (counter - 1));
 				counter--;
 				j++;
 			}
 			else if (b[j] == 48)
 			{
-				decimal = decimal + 0;
+				decimal += (0 << (counter - 1));
 				counter--;
 				j++;
 			}
@@ -46,11 +46,12 @@ unsigned int binary_to_uint(const char *b)
  * @b: string
  * Return: 1 if is only 0/1 and 0 if contain other characters
  */
+
 int check_binary(const char *b)
 {
 	while (*b != '\0')
 	{
-		if (*b == '0' || *b == '1')
+		if (*b == '0'|| *b == '1')
 		{
 			b++;
 		}
