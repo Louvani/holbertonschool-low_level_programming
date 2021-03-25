@@ -7,7 +7,6 @@
  * - there is one or more chars in the string b that is not 0 or 1
  * - b is NULL
  */
-
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int decimal = 0;
@@ -46,12 +45,11 @@ unsigned int binary_to_uint(const char *b)
  * @b: string
  * Return: 1 if is only 0/1 and 0 if contain other characters
  */
-
 int check_binary(const char *b)
 {
 	while (*b != '\0')
 	{
-		if (*b == '0'|| *b == '1')
+		if (*b == '0' || *b == '1')
 		{
 			b++;
 		}
