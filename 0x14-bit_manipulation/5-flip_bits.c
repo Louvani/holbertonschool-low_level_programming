@@ -7,9 +7,10 @@
  * @m: second number
  * Return: number of bits to set
  */
+
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int aux; /*keep xor of n and m*/
+	unsigned long int aux; /*keep xor of n and m*/
 	unsigned int counter_of_difference = 0; /*count the number of diference*/
 
 	aux = (n ^ m); /*the result will be compauxre with aux-1*/
