@@ -4,6 +4,7 @@
  *puts_half - function that prints every other character of a string
  *@str: String
  */
+
 void puts_half(char *str)
 {
 	int l = 0;
@@ -20,7 +21,7 @@ void puts_half(char *str)
 	if (l % 2 == 0)
 		startingPoint = l / 2;
 	else
-		startingPoint = (l - 1) / 2;
+		startingPoint = (l + 1) / 2;
 	/*reset aux to start at the middle of the string*/
 	strAux = str + startingPoint;
 	while (*strAux)
