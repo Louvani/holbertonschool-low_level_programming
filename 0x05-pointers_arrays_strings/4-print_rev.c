@@ -4,22 +4,25 @@
  *print_rev - Functión that prints a string, in reverse
  *@s: Variable that keeps the string
  */
+
 void print_rev(char *s)
 {
-	int l;
-	int m;
+	int lenght; /*of the string*/
+	int i;
 
-	l = 0;
-
+	lenght = 0;
+	/*Calaculate the lenght and punt the pointer in the last position*/
 	while (*s != '\0')
 	{
-		l++;
+		lenght++;
 		s++;
 	}
-	for (m = l; m >= 0; --m)
+	lenght -= 1;
+	/*print each character while pointer comes back*/
+	for (i = lenght; i >= 0; --i)
 	{
-		_putchar(*s);
 		--s;
+		_putchar(*s);
 	}
 	_putchar(10);
 }
