@@ -27,7 +27,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int file_descriptor;
 	char *buffer;
-	int len_buffer, i, j;
+	ssize_t /*len_buffer,*/i, j;
 
 	if (filename == NULL)
 		return (0);
@@ -44,18 +44,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (j == -1)
 		return (0);
 
-	close(file_descriptor);
-	/*Add null character at the end of the string*/
-	len_buffer = myStrlen(buffer);
-	buffer[len_buffer + 1] = '\0';
-
 	/*print buffer*/
-	len_buffer = myStrlen(buffer);
-	i = write(1, buffer, len_buffer);
+	i = write(STDOUT_FILENO, buffer, j);
 	if (i == -1)
 		return (0);
-
+	close(file_descriptor);
 	free(buffer);
 
-	return (len_buffer);
+	return (i);
 }
