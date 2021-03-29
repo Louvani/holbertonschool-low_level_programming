@@ -24,6 +24,7 @@ unsigned int myStrlen(char *p)
  * Return: 1 on success, -1 on failure (file can not be created,
  * file can not be written, write “fails”, etc…)
  */
+
 int create_file(const char *filename, char *text_content)
 {
 	int file_descriptor, b_write;
@@ -40,5 +41,5 @@ int create_file(const char *filename, char *text_content)
 		if (b_write == -1)
 			return (-1);
 	}
-	return (0);
+	return (1);
 }
