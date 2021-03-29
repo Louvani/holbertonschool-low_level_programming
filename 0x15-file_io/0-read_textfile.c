@@ -4,6 +4,7 @@
  * @p: variable to determine the dest lenght.
  * Return: always count.
  */
+
 unsigned int myStrlen(char *p)
 {
 	unsigned int count = 0;
@@ -27,6 +28,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int file_descriptor;
 	char *buffer;
 	int len_buffer;
+
+	if (filename == NULL)
+		return (0);
 
 	/*open and read file*/
 	file_descriptor = open(filename, O_RDONLY);
