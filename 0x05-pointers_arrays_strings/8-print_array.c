@@ -6,19 +6,17 @@
  * @a: poiter to the array
  * @n: is the number of elements of the array to be printed
  */
+
 void print_array(int *a, int n)
 {
 	int i = 0;
 
-	if (n < 0)
+	while (i < n && a != NULL)
 	{
-		printf("%d\n", a[i]);
-		return;
-	}
-	while (i < n - 1 && a != NULL)
-	{
-		printf("%d, ", a[i]);
+		printf("%d", a[i]);
+		if (i != n - 1) /*last number don't need ", " */
+		printf(", ");
 		i++;
 	}
-	printf("%d\n", a[i]);
+	printf("\n");
 }
