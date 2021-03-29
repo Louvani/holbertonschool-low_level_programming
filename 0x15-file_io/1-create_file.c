@@ -31,12 +31,14 @@ int create_file(const char *filename, char *text_content)
 
 	if (filename == NULL)
 		return (0);
-	if (text_content == NULL)
-		return (0);
+
 	file_descriptor = open(filename, O_CREAT | 0600);
 	if (file_descriptor == -1)
 		return (-1);
-	b_write = write(file_descriptor, text_content, myStrlen(text_content));
+	if (text_content == NULL)
+		return (0);
+	else
+		b_write = write(file_descriptor, text_content, myStrlen(text_content));
 	if (b_write == -1)
 		return (-1);
 	return (0);
