@@ -4,6 +4,7 @@
  * @p: variable to determine the dest lenght.
  * Return: always count.
  */
+
 unsigned int myStrlen(char *p)
 {
 	unsigned int count = 0;
@@ -26,7 +27,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int file_descriptor;
 	char *buffer;
-	int len_buffer, i;
+	int len_buffer, i, j;
 
 	if (filename == NULL)
 		return (0);
@@ -39,14 +40,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buffer = malloc(sizeof(char) * letters);
 	if (!buffer)
 		return (0);
-	read(file_descriptor, buffer, letters);
+	j = read(file_descriptor, buffer, letters);
+	if (j == -1)
+		return (0);
 
 	close(file_descriptor);
-	/*Put the text into an auxiliar variable*/
+	/*Add null character at the end of the string*/
 	len_buffer = myStrlen(buffer);
-
 	buffer[len_buffer + 1] = '\0';
 
+	/*print buffer*/
 	len_buffer = myStrlen(buffer);
 	i = write(1, buffer, len_buffer);
 	if (i == -1)
