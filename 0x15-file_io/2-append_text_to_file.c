@@ -23,7 +23,6 @@ unsigned int myStrlen(char *p)
  * Return: 1 on success, -1 on failure (file can not be created,
  * file can not be written, write “fails”, etc…)
  */
-
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int fd, i, len;
@@ -34,9 +33,12 @@ int append_text_to_file(const char *filename, char *text_content)
 	fd = open(filename, O_APPEND | O_WRONLY);
 	if (fd == -1)
 		return (-1);
+	if (text_content == NULL)
+		return (1);
 	i = write(fd, text_content, len);
-	if (i == -1)
-		return (-1);
+		if (i == -1)
+			return (-1);
+
 	close(fd);
 
 	return (1);
