@@ -5,9 +5,9 @@
  * Return: always count.
  */
 
-unsigned int myStrlen(char *p)
+int myStrlen(char *p)
 {
-	unsigned int count = 0;
+	int count = 0;
 
 	while (*p != '\0')
 	{
@@ -23,13 +23,13 @@ unsigned int myStrlen(char *p)
  * Return: 1 on success, -1 on failure (file can not be created,
  * file can not be written, write “fails”, etc…)
  */
+
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int fd; /*file descriptor*/
 	int i;
 	int len; /*lenght of the text_content*/
 
-	len = myStrlen(text_content);
 	if (filename == NULL)
 		return (-1);
 	/*open the file and check*//*Do not create the file if it does not exist*/
@@ -37,15 +37,15 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 	/*If text_content is NULL, do not add anything to the file. Return 1 */
-	if (text_content == NULL)
+	if (text_content != NULL)
 	{
-		close(fd);
-		return (1);
+		len = myStrlen(text_content);
 	}
+	else
+		return (1);
 	i = write(fd, text_content, len);
 		if (i == -1)
 		{
-			close(fd);
 			return (-1);
 		}
 
