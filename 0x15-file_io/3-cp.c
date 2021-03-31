@@ -6,6 +6,7 @@
  * @argv: arguments
  * Return: 0 if have more than 1 arguments.
  */
+
 int main(int argc, char *argv[])
 {
 	int file_from, file_to, read_result, write_result;
@@ -13,11 +14,11 @@ int main(int argc, char *argv[])
 	char buffer[1024];
 
 	if (argc != 3)
-	{	printf("Usage: cp file_from file_to");
+	{	dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
 		exit(97);
 	}
 	if (argv[1] == NULL)
-	{	printf("Error: Can't read from file %s", argv[1]);
+	{	dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
 		exit(98);
 	}
 	/*open files*/
@@ -31,20 +32,20 @@ int main(int argc, char *argv[])
 		write_result = dprintf(file_to, "%s", buffer);
 		if (write_result == -1)
 		{
-			printf("Error: Can't write to %s", argv[1]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s", argv[1]);
 			exit(99);
 		}
 	}
 	close1 = close(file_from);
 	if (close1 == -1)
 	{
-		printf("Error: Can't close fd %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 	close2 = close(file_to);
 	if (close2 == -1)
 	{
-		printf("Error: Can't close fd %d\n", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
 	}
 	return (0);
