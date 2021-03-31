@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (file_to == -1)
 	{	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
-		close1 = close(file_from);
+		close(file_from);
 		exit(99);
 	}
 	/*copy on the second file*/
@@ -34,16 +34,16 @@ int main(int argc, char *argv[])
 		if (read_result == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			close1 = close(file_from);
-			close2 = close(file_to);
+			close(file_from);
+			close(file_to);
 			exit(98);
 		}
-		close1 = close(file_from);
 		write_result = dprintf(file_to, "%s", buffer);
 		if (write_result == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);
-			close2 = close(file_to);
+			close(file_from);
+			close(file_to);
 			exit(99);
 		}
 	}
