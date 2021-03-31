@@ -6,6 +6,7 @@
  * @argv: arguments
  * Return: 0 if have more than 1 arguments.
  */
+
 int main(int argc, char *argv[])
 {
 	int file_from, file_to, read_result, write_result;
@@ -58,5 +59,5 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
 	}
-	return (0);
+	return (1);
 }
