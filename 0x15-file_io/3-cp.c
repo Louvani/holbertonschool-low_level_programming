@@ -1,16 +1,14 @@
 #include "holberton.h"
-
+#include <stdlib.h>
 /**
  * main - program that copies the content of a file to another file.
  * @argc:Counter of arguments
  * @argv: arguments
  * Return: 0 if have more than 1 arguments.
  */
-
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, read_result, write_result, i = 0;
-	char buffer[1024];
+	int file_from, file_to;
 
 	if (argc != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"),
@@ -26,26 +24,45 @@ int main(int argc, char *argv[])
 		close(file_from),
 		exit(99);
 	/*copy on the second file*/
-	while ((read_result = read(file_from, buffer, 1023) > 0))
+	read_and_write(file_from, file_to, argv[1], argv[2]);
+
+	close_file(file_from);
+	close_file(file_to);
+	return (0);
+}
+/**
+ * read_and_write - read file from and copy into file to
+ * @fd_from: file descriptor for the source file
+ * @fd_to: file descriptor for the dest file
+ * @n_from: name of the source file
+ * @n_to: name of the dest file
+ * Return: 0 on success
+*/
+int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
+{
+	int read_result, write_result, i = 0;
+	char buffer[1024];
+
+	while ((read_result = read(fd_from, buffer, 1023) > 0))
 	{
 		if (read_result == -1)
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]),
-			close(file_from),
-			close(file_to),
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", n_from),
+			close(fd_from),
+			close(fd_to),
 			exit(98);
-		write_result = dprintf(file_to, "%s", buffer);
-		if (write_result == -1)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]),
-			close(file_from),
-			close(file_to),
-			exit(99);
+		else if (read_result > 0)
+		{
+			write_result = dprintf(fd_to, "%s", buffer);
+			if (write_result == -1)
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", n_to),
+				close(fd_from),
+				close(fd_to),
+				exit(99);
+		}
 		while (i < 1024)
 			buffer[i] = '\0',
 			i++;
 	}
-	dprintf(STDOUT_FILENO, "\n");
-	close_file(file_from);
-	close_file(file_to);
 	return (0);
 }
 /**

@@ -2,6 +2,7 @@
 #define HOLB_H
 
 /*Libraries*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -19,6 +20,7 @@ int append_text_to_file(const char *filename, char *text_content);
 
 
 /*Aux prototypes*/
+int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to);
 int close_file(int file);
 
 #endif
