@@ -6,6 +6,7 @@
  * @argv: arguments
  * Return: 0 if have more than 1 arguments.
  */
+
 int main(int argc, char *argv[])
 {
 	int file_from, file_to;
@@ -20,7 +21,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (file_to == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]),
+		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", argv[2]),
 		close(file_from),
 		exit(99);
 	/*copy on the second file*/
