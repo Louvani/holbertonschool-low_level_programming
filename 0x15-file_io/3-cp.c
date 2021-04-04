@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 	/*copy on the second file*/
-	read_and_write(file_from, file_to, argv[1], argv[2]);
+	read_and_write(&file_from, &file_to, argv[1], argv[2]);
 
 	close_file(file_from);
 	close_file(file_to);
@@ -44,26 +44,26 @@ int main(int argc, char *argv[])
  * @n_to: name of the dest file
  * Return: 0 on success
 */
-void read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
+void read_and_write(int *fd_from, int *fd_to, char *n_from, char *n_to)
 {
 	int read_result, write_result;
 	char buffer[1024];
 
-	while ((read_result = read(fd_from, buffer, 1024) > 0))
+	while ((read_result = read(*fd_from, buffer, 1024) > 0))
 	{
-		if ((write_result = write(fd_to, buffer, read_result)) == -1)
+		if ((write_result = write(*fd_to, buffer, read_result)) == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", n_to);
-			close(fd_from);
-			close(fd_to);
+			close(*fd_from);
+			close(*fd_to);
 			exit(99);
 		}
 	}
 	if (read_result == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", n_from);
-		close(fd_from);
-		close(fd_to);
+		close(*fd_from);
+		close(*fd_to);
 		exit(98);
 	}
 }
