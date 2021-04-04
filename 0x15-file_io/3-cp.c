@@ -6,24 +6,29 @@
  * @argv: arguments
  * Return: 0 if have more than 1 arguments.
  */
-
 int main(int argc, char *argv[])
 {
 	int file_from, file_to;
 
 	if (argc != 3)
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"),
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
+	}
 	/*open files*/
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]),
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
+	}
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (file_to == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]),
-		close(file_from),
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		close(file_from);
 		exit(99);
+	}
 	/*copy on the second file*/
 	read_and_write(file_from, file_to, argv[1], argv[2]);
 
@@ -46,7 +51,7 @@ int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
 
 	while ((read_result = read(fd_from, buffer, 1023) > 0))
 	{
-		write_result = dprintf(fd_to, "%s", buffer);
+		write_result = write(fd_to, buffer, read_result);
 		if (write_result == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", n_to);
@@ -55,8 +60,10 @@ int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
 			exit(99);
 		}
 		while (i < 1024)
-			buffer[i] = '\0',
+		{
+			buffer[i] = '\0';
 			i++;
+		}
 	}
 	if (read_result == -1)
 	{
