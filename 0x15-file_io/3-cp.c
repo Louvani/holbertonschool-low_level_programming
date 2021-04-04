@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 */
 int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
 {
-	int read_result, write_result, i = 0;
+	int read_result, write_result;
 	char buffer[1024];
 
 	while ((read_result = read(fd_from, buffer, 1023) > 0))
@@ -57,11 +57,6 @@ int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
 			close(fd_from);
 			close(fd_to);
 			exit(99);
-		}
-		while (i < 1024)
-		{
-			buffer[i] = '\0';
-			i++;
 		}
 	}
 	if (read_result == -1)
