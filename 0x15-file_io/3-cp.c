@@ -6,6 +6,7 @@
  * @argv: arguments
  * Return: 0 if have more than 1 arguments.
  */
+
 int main(int argc, char *argv[])
 {
 	int file_from, file_to;
@@ -45,24 +46,25 @@ int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
 
 	while ((read_result = read(fd_from, buffer, 1023) > 0))
 	{
-		if (read_result > 0)
+		write_result = dprintf(fd_to, "%s", buffer);
+		if (write_result == -1)
 		{
-			write_result = dprintf(fd_to, "%s", buffer);
-			if (write_result == -1)
-				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", n_to),
-				close(fd_from),
-				close(fd_to),
-				exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", n_to);
+			close(fd_from);
+			close(fd_to);
+			exit(99);
 		}
 		while (i < 1024)
 			buffer[i] = '\0',
 			i++;
 	}
 	if (read_result == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", n_from),
-		close(fd_from),
-		close(fd_to),
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", n_from);
+		close(fd_from);
+		close(fd_to);
 		exit(98);
+	}
 	return (0);
 }
 /**
