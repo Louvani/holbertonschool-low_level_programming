@@ -6,7 +6,6 @@
  * @argv: arguments
  * Return: 0 if have more than 1 arguments.
  */
-
 int main(int argc, char *argv[])
 {
 	int file_from, file_to;
@@ -21,7 +20,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (file_to == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", argv[2]),
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]),
 		close(file_from),
 		exit(99);
 	/*copy on the second file*/
@@ -46,12 +45,7 @@ int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
 
 	while ((read_result = read(fd_from, buffer, 1023) > 0))
 	{
-		if (read_result == -1)
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", n_from),
-			close(fd_from),
-			close(fd_to),
-			exit(98);
-		else if (read_result > 0)
+		if (read_result > 0)
 		{
 			write_result = dprintf(fd_to, "%s", buffer);
 			if (write_result == -1)
@@ -64,6 +58,11 @@ int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
 			buffer[i] = '\0',
 			i++;
 	}
+	if (read_result == -1)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", n_from),
+		close(fd_from),
+		close(fd_to),
+		exit(98);
 	return (0);
 }
 /**
