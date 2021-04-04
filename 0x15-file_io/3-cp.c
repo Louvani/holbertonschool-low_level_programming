@@ -46,7 +46,7 @@ int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
 
 	while ((read_result = read(fd_from, buffer, 1023) > 0))
 	{
-		write_result = dprintf(fd_to, "%s", buffer);
+		write_result = write(fd_to, buffer, read_result);
 		if (write_result == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", n_to);
