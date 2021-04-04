@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
  * @n_to: name of the dest file
  * Return: 0 on success
 */
-int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
+void read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
 {
 	int read_result, write_result;
 	char buffer[1024];
@@ -66,14 +66,13 @@ int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
 		close(fd_to);
 		exit(98);
 	}
-	return (0);
 }
 /**
  * close_file - close X file.
  * @file: file to close
  * Return: 0 on success, exit 100 if fails
 */
-int close_file(int file)
+void close_file(int file)
 {
 	int close_file;
 
@@ -83,5 +82,4 @@ int close_file(int file)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
 		exit(100);
 	}
-	return (0);
 }
