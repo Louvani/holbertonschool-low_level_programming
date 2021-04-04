@@ -21,6 +21,6 @@ int append_text_to_file(const char *filename, char *text_content);
 
 /*Aux prototypes*/
 void read_and_write(int *fd_from, int *fd_to, char *n_from, char *n_to);
-void close_file(int file);
+void close_file(int *file);
 
 #endif

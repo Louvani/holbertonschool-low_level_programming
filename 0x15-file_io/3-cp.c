@@ -32,8 +32,8 @@ int main(int argc, char *argv[])
 	/*copy on the second file*/
 	read_and_write(&file_from, &file_to, argv[1], argv[2]);
 
-	close_file(file_from);
-	close_file(file_to);
+	close_file(&file_from);
+	close_file(&file_to);
 	return (0);
 }
 /**
@@ -72,14 +72,14 @@ void read_and_write(int *fd_from, int *fd_to, char *n_from, char *n_to)
  * @file: file to close
  * Return: 0 on success, exit 100 if fails
 */
-void close_file(int file)
+void close_file(int *file)
 {
 	int close_file;
 
-	close_file = close(file);
+	close_file = close(*file);
 	if (close_file == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", *file);
 		exit(100);
 	}
 }
