@@ -49,7 +49,7 @@ int read_and_write(int fd_from, int fd_to, char *n_from, char *n_to)
 	int read_result, write_result;
 	char buffer[1024];
 
-	while ((read_result = read(fd_from, buffer, 1023) > 0))
+	while ((read_result = read(fd_from, buffer, 1024) > 0))
 	{
 		if ((write_result = write(fd_to, buffer, read_result)) == -1)
 		{
