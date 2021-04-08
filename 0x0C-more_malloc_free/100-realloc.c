@@ -3,7 +3,6 @@
 #include <stdlib.h>
 
 char *_memcpy(char *dest, char *src, unsigned int n);
-
 /**
  * _realloc - reallocs memory
  * @ptr: pointer to to be reallocated
@@ -27,6 +26,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	newPtr = (void *)malloc(new_size);
 	if (!newPtr)
 		return (NULL);
+	free(ptr);
 	return (_memcpy(newPtr, ptr, old_size));
 
 }
