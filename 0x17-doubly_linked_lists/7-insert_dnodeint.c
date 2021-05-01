@@ -1,7 +1,6 @@
 #include "lists.h"
 
 size_t num_nodes(const dlistint_t *h);
-
 /**
  * insert_dnodeint_at_index -  inserts a new node at a given position.
  * @h: pointer to the header of a file
@@ -15,7 +14,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	unsigned int num_of_nodes = num_nodes(*h);
 	unsigned int counter = 0;
 
-	printf("index %d nodes %d\n", idx, num_of_nodes);
 	new_node = malloc(sizeof(dlistint_t));
 	if (new_node == NULL)
 		return (NULL);
