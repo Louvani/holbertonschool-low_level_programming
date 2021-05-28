@@ -4,7 +4,7 @@
 /*INCLUDES*/
 #include <stdlib.h> /*Malloc*/
 #include <stdio.h>
-
+#include <string.h> /*strdup*/
 
 /**
  * struct hash_node_s - Node of a hash table
