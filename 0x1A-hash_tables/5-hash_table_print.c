@@ -11,6 +11,7 @@
 void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int idx_arr = 0;
+	int itetarion = 0;
 	hash_node_t *current_list = NULL;
 
 	printf("{");
@@ -19,10 +20,11 @@ void hash_table_print(const hash_table_t *ht)
 		current_list = ht->array[idx_arr];
 		while (current_list)
 		{
-			printf("'%s': '%s'", current_list->key, current_list->value);
-			if (current_list->next)
+			if (itetarion != 0)
 				printf(", ");
+			printf("'%s': '%s'", current_list->key, current_list->value);
 			current_list = current_list->next;
+			itetarion++;
 		}
 		idx_arr++;
 	}
