@@ -14,19 +14,22 @@ void hash_table_print(const hash_table_t *ht)
 	int itetarion = 0;
 	hash_node_t *current_list = NULL;
 
-	printf("{");
-	while (idx_arr < ht->size)
+	if (ht)
 	{
-		current_list = ht->array[idx_arr];
-		while (current_list)
+		printf("{");
+		while (idx_arr < ht->size)
 		{
-			if (itetarion != 0)
-				printf(", ");
-			printf("'%s': '%s'", current_list->key, current_list->value);
-			current_list = current_list->next;
-			itetarion++;
+			current_list = ht->array[idx_arr];
+			while (current_list)
+			{
+				if (itetarion != 0)
+					printf(", ");
+				printf("'%s': '%s'", current_list->key, current_list->value);
+				current_list = current_list->next;
+				itetarion++;
+			}
+			idx_arr++;
 		}
-		idx_arr++;
+		printf("}\n");
 	}
-printf("}\n");
 }
