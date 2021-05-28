@@ -12,7 +12,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	hash_node_t *current;
 	unsigned long int index;
 
-	if (key == NULL)
+	if (!key || strlen(key) == 0 || !ht)
 		return (NULL);
 
 	/*Get the index of in the aarray*/
