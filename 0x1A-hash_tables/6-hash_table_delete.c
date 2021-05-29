@@ -5,6 +5,7 @@
  * @ht: is the hash table
  * Return: nothing
  */
+
 void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long int idx_arr = 0;
