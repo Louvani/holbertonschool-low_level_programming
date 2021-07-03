@@ -9,7 +9,7 @@ VAR2 := $($(VAR1))
 all : $(OBJ) m.h
 	$(CC) $(VAR2) $(SRC) -o $(NAME)
 
-.PHONY: clean
+.PHONY: clean oclean fclean re
 clean:
 	$(RM) *~ $(NAME)
 
