@@ -2,10 +2,11 @@ CC = gcc
 SRC = main.c holberton.c
 OBJ =  $(SRC:.c=.o)
 NAME = holberton
-VAR = CFLAGS
 CFLAGS = -Wall -Werror -Wextra -pedantic
+VAR1 = CFLAGS
+VAR2 := $($(VAR1))
 all : $(SRC) $(OBJ) m.h
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(VAR2) $(OBJ) -o $(NAME)
 .PHONY: clean
 clean:
 	$(RM) *~ $(NAME)
