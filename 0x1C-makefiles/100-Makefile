@@ -5,7 +5,7 @@ NAME = holberton
 VAR = $(CFLAGS)
 CFLAGS = -Wall -Werror -Wextra -pedantic
 all : $(SRC) $(OBJ) m.h
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(VAR) $(OBJ) -o $(NAME)
 .PHONY: clean
 clean:
 	$(RM) *~ $(NAME)
