@@ -6,10 +6,10 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 VAR1 = CFLAGS
 VAR2 := $($(VAR1))
 
+.PHONY: clean oclean fclean re all
 all : $(OBJ) m.h
 	$(CC) $(VAR2) $(SRC) -o $(NAME)
 
-.PHONY: clean oclean fclean re all
 clean:
 	$(RM) *~ $(NAME)
 
