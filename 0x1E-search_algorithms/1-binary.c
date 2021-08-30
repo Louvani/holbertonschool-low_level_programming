@@ -39,45 +39,31 @@ int binary_search(int *array, size_t size, int value)
  */
 int subroutine(int *array, int left, int rigth, int value)
 {
-	int mid;
+	int mid, aux;
 
 	if (left > rigth)
 	{
 		return (-1);
 	}
-
 	mid = (left + rigth) / 2;
-	print_sub_array(array, left, rigth);
-	if (array[mid] < value)
-	{
-		return (subroutine(array, mid + 1, rigth, value));
-	}
-	if (array[mid] > value)
-	{
-		return (subroutine(array, left, mid - 1, value));
-	}
-	if (array[mid] == value)
-	{
-		return (mid);
-	}
-	return (-1);
-}
-/**
- * print_sub_array - print array where is searching
- * @array: is a pointer to the first element of the array print
- * @left: is the first number in array
- * @rigth: is the last number in array
- */
-void print_sub_array(int *array, int left, int rigth)
-{
+	aux = left;
 	printf("Searching in array: ");
-		while (left <= rigth)
-		{
-			if (left == rigth)
-				printf("%d", array[left]);
-			else
-				printf("%d, ", array[left]);
-			left++;
-		}
-		printf("\n");
+	while (aux <= rigth)
+	{
+		if (aux == rigth)
+			printf("%d", array[aux]);
+		else
+			printf("%d, ", array[aux]);
+		aux++;
+	}
+	printf("\n");
+
+	if (array[mid] < value)
+		return (subroutine(array, mid + 1, rigth, value));
+	if (array[mid] > value)
+		return (subroutine(array, left, mid - 1, value));
+	if (array[mid] == value)
+		return (mid);
+
+	return (-1);
 }
